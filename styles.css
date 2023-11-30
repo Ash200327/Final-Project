@@ -298,21 +298,7 @@ body {
     padding: 70px;
 }
 
-@media screen and (max-width: 900px) {
-    .spot-card {
-        flex-direction: row;
-    }
 
-    .spot-image,
-    .spot-details {
-        flex: 2;
-    }
-
-    .spot-details {
-        margin-left: 20px;
-        text-align: right;
-    }
-}
   
 .back{
     font-size: 30px;
