@@ -298,7 +298,7 @@ body {
     padding: 70px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 768px) {
     .spot-card {
         flex-direction: row;
     }
@@ -398,6 +398,7 @@ body {
 .news-feed-content {
     animation: scroll 40s linear infinite;
     padding: 10px;
+    background-color: linear-gradient(135deg, #00feba, #5b548a);
 }
 .news-feed-card h2{
     text-align: center;
@@ -407,7 +408,7 @@ body {
     font-size: 35px;
     border: 50px solid
     overflow: hidden;
-    opacity::before
+    opacity: before;
 }
 
 @keyframes scroll {
@@ -471,8 +472,8 @@ body {
     padding: 30px
 }
 .back{
-    margin-bottom: 750px;
-    margin-left: 1000px;
+    margin-bottom: 850px;
+    margin-left: 1200px;
     font-size: 80px;
     color: white;
     background:  linear-gradient(135deg, #00feba, #5b548a);
