@@ -1,4 +1,4 @@
-body {
+.body {
     background-color: #131212;
     color: #333;
     font-family: Arial, sans-serif;
@@ -67,7 +67,7 @@ body {
 
 .side-bar.active {
     left: 0;
-    color:#003333;
+    color: #003333;
 }
 
 .content {
@@ -103,7 +103,7 @@ body {
     }
     
     .spot-card-paragraph{
-        color: #ffffff
+        color: #ffffff;
     }
     
     .spot-details {
@@ -175,7 +175,6 @@ body {
 }
 
 .faq-question {
-    background-color: ;
     padding: 10px;
     cursor: pointer;
     font-size: 20px;
@@ -187,7 +186,6 @@ body {
 .faq-answer {
     display: none;
     padding: 5px;
-    background-color: ;
     font-size: 20px;
     color: white;
 }
@@ -385,7 +383,7 @@ body {
     overflow: hidden;
     border: 20px solid #ccc;
     width: 500px;
-    background-color: linear-gradient(135deg, #00feba, #5b548a);
+    background-color: ;
 }
 
 .container h2{
@@ -398,6 +396,7 @@ body {
 .news-feed-content {
     animation: scroll 40s linear infinite;
     padding: 10px;
+    background-color: linear-gradient(135deg, #00feba, #5b548a);
     
 }
 .news-feed-card h2{
@@ -406,7 +405,7 @@ body {
     background: white;
     margin-top: 0px;
     font-size: 35px;
-    border: 50px solid
+    border: 50px solid;
     overflow: hidden;
     opacity: before;
 }
@@ -469,7 +468,7 @@ body {
     font-size: 70px;
     color:#ffffff;
     margin-top: 0px;
-    padding: 30px
+    padding: 30px;
 }
 .back{
     margin-bottom: 1000px;
