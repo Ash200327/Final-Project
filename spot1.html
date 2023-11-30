@@ -114,15 +114,15 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             const city = 'Visakhapatnam'; 
-            const newsApiKey = 'bf7a26af561c49a5b198a2bba870b34d'; 
-            const newsApiUrl = `https://newsapi.org/v2/top-headlines?q=India&apiKey=bf7a26af561c49a5b198a2bba870b34d`;
+            const newsApiKey = '1ebee1c87d714b11b0e107ae0b84d91a'; 
+            const newsApiUrl = `https://newsapi.org/v2/top-headlines?q=India&apiKey=1ebee1c87d714b11b0e107ae0b84d91a`;
 
             function loadNewsFeed() {
                 fetch(newsApiUrl)
                     .then(response => response.json())
                     .then(data => {
                         const newsFeedElement = document.getElementById('news-feed');
-                        newsFeedElement.innerHTML = ''; // Clear existing content
+                        newsFeedElement.innerHTML = ''; 
 
                         data.articles.forEach(article => {
                             const listItem = document.createElement('li');
