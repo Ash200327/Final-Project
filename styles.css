@@ -385,7 +385,7 @@ body {
     overflow: hidden;
     border: 20px solid #ccc;
     width: 500px;
-    background-color: black;
+    background-color: linear-gradient(135deg, #00feba, #5b548a);
 }
 
 .container h2{
@@ -398,7 +398,7 @@ body {
 .news-feed-content {
     animation: scroll 40s linear infinite;
     padding: 10px;
-    background-color: linear-gradient(135deg, #00feba, #5b548a);
+    
 }
 .news-feed-card h2{
     text-align: center;
@@ -472,7 +472,7 @@ body {
     padding: 30px
 }
 .back{
-    margin-bottom: 850px;
+    margin-bottom: 1000px;
     margin-left: 1200px;
     font-size: 80px;
     color: white;
