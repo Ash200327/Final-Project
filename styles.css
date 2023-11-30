@@ -1,4 +1,4 @@
-.body {
+body {
     background-color: #131212;
     color: #333;
     font-family: Arial, sans-serif;
@@ -383,7 +383,7 @@
     overflow: hidden;
     border: 20px solid #ccc;
     width: 500px;
-    background-color: ;
+    background-color: black;
 }
 
 .container h2{
