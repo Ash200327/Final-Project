@@ -1,0 +1,479 @@
+body {
+    background-color: #131212;
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    font-style: normal;
+    
+}
+
+.index{
+    background-color: #ffffff;
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    font-style: normal;
+    background-image: url('https://pix1.agoda.net/hotelimages/6602000/0/62ac72cf52506c3d6707d67278ae49d8.jpg');
+    background-size: cover;
+    height: 100vh;
+}
+.toggle-button {
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+    margin-top: 25px
+}
+
+.bar {
+    width: 50px;
+    height: 10px;
+    background-color: #ffffff;
+    margin: 7px 0;
+}
+
+.side-bar {
+    position: FIXED;
+    top: 0;
+    left: -250px;
+    width: 210px;
+    height: 100%;
+    background-color: #ec8b8e;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    z-index: 0;
+    padding-top: 100px;
+}
+
+.side-bar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+.side-bar li {
+    margin-bottom: 10px;
+}
+
+.side-bar a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 21px;
+}
+
+.side-bar.active {
+    left: 0;
+    color:#003333;
+}
+
+.content {
+    padding: 20px;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+    .side-bar.active {
+        left: 0;
+    }
+    .tourist-spots{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    .spot-card {
+        background-color: black;
+        color: white;
+        margin: 10px;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(227, 55, 55, 0.1);
+        flex-direction: row;
+        width: 45%;
+    }
+    
+    .spot-image img {
+        max-width: 400px;
+        height: 300px;
+        border-radius: 6px;
+    }
+    
+    .spot-card-paragraph{
+        color: #ffffff
+    }
+    
+    .spot-details {
+        margin-top: 10px;
+        margin-left: 10px;
+        font-size: 25px;
+    }
+}
+
+.homepage-title{
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    font-style: italic;
+    font-size: 70px;
+}
+
+.footer{
+    background-color: black;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    font-style: italic;
+    font-size: 20px;
+}
+.homepage-title h1 {
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 600;
+}
+.homepage-title h1 span {
+    color: #ffffff;
+    position: relative;
+}
+.homepage-quote {
+    text-align: center;
+    color: #ffffff;
+}
+.homepage-title h1 span::before {
+    content: "";
+    height: 30px;
+    width: 2px;
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    background: black;
+    transform: translateY(-45%);
+    animation: blink 0.7s infinite;
+}
+.homepage h1 span.stop-blinking::before {
+    animation: none;
+}
+@keyframes blink {
+    50% {opacity: 0}
+}
+.homepage-quote h2{
+    font-size: 23px;
+}
+.faq-section {
+    max-width: 600px;
+    margin: 10px;
+}
+
+.faq-section h2{
+    text-align: left;
+}
+.faq-item {
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    background-color: ;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.faq-answer {
+    display: none;
+    padding: 5px;
+    background-color: ;
+    font-size: 20px;
+    color: white;
+}
+
+.tourist-spots{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.spot-header h1{
+    color: white;
+    text-align: center;
+    font-size: 60px;
+    font-style: oblique;
+}
+
+.spot-card {
+    background-color: black;
+    color: white;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(227, 55, 55, 0.1);
+    display: flex;
+    flex-direction: row;
+    width: 900px;
+    height: 400px;
+}
+
+.spot-image img {
+    max-width: 400px;
+    height: 400px;
+    border-radius: 6px;
+}
+
+.spot-card-paragraph{
+    color: #ffffff
+}
+
+.spot-details {
+    margin-top: 10px;
+    margin-left: 30px;
+    font-size: 30px;
+}
+
+.spot-description p{
+    font-size: 30px;
+    font-family: "Roboto";
+    font-weight: bold;
+    color: white;
+    background-color: ;
+}
+
+.main-div{
+    max-width: 900px;
+    margin-right: 200px;
+    margin-left: 200px;
+}
+.carousel-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 500px;
+    margin-left: 0px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    margin-right: 10px;
+    font-size: 30px;
+}
+.carousel-item p{
+    font-size: 100px;
+}
+.carousel-item img {
+   
+    height: 550px;
+    width: 1200px
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.spot-features{
+    display: flex;
+    padding: 70px;
+}
+
+@media screen and (max-width: 900px) {
+    .spot-card {
+        flex-direction: row;
+    }
+
+    .spot-image,
+    .spot-details {
+        flex: 2;
+    }
+
+    .spot-details {
+        margin-left: 20px;
+        text-align: right;
+    }
+}
+  
+.back{
+    font-size: 30px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.card{
+    width: 100%;
+    max-width: 800px;
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    color: #fff;
+    margin: 0px 0px 3px;
+    text-align: center;
+    height: 300px;
+    margin-right: 30px
+
+}
+.weather h1{
+    font-size: 50px;
+    font-weight: 500;
+}
+.weather h2{
+    font-size: 30px;
+    font-weight: 400;
+    margin-top: -10px;
+}
+.details{
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 15px;
+    margin-top: 20px;
+    display: flex;
+}
+.humidity{
+    font-size: 28px;
+    margin-top: -6px;
+    ;
+}
+.wind{
+    font-size: 28px;
+    margin-top: -6px;
+}
+
+.error{
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
+
+.card {
+    border: 1px solid #ccc;
+    overflow: hidden;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 50px;
+}
+
+.card-content {
+    padding: 20px;
+    border-color: #ffffff;
+    border-style: groove solid;
+    height: 1rem;
+}
+
+.news-feed-card {
+    height: 780px; 
+    overflow: hidden;
+    border: 20px solid #ccc;
+    width: 500px;
+    background-color: black;
+}
+
+.container h2{
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    margin-bottom: 0px;
+    font-size: 35px;
+}
+.news-feed-content {
+    animation: scroll 40s linear infinite;
+    padding: 10px;
+}
+.news-feed-card h2{
+    text-align: center;
+    color: linear-gradient(135deg, #00feba, #5b548a);
+    background: white;
+    margin-top: 0px;
+    font-size: 35px;
+    border: 50px solid
+    overflow: hidden;
+    opacity::before
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(calc(-100% - 20px));
+    }
+}
+.logo {
+    color: #fff;
+    font-size: 4rem;
+    margin-left: 8rem;
+    font-family: "Courier New";
+}
+.navbar {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    padding: 20px;
+    font-size: 25px;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+.homepage-title{
+    margin-top: 200px;
+    font-size: 100px;
+}
+.homepage-quote{
+    font-size: 50px;
+    text-align: left;
+    margin-top: 0px;
+}
+.header{
+    background-image: url('https://pix1.agoda.net/hotelimages/6602000/0/62ac72cf52506c3d6707d67278ae49d8.jpg');
+    height: 11vh;
+    background-size: cover;
+}
+.header h1{
+    text-align: center;
+    font-size: 70px;
+    color:#ffffff;
+    margin-top: 0px;
+    padding: 30px
+}
+.back{
+    margin-bottom: 750px;
+    margin-left: 1000px;
+    font-size: 80px;
+    color: white;
+    background:  linear-gradient(135deg, #00feba, #5b548a);
+}

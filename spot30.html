@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Garden</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<body>
+    <div class="header">
+        <h1>Rock Garden</h1>
+    </div>
+
+    <div class="spot-description">
+        <p>It is also known as Nek Chand Saini's Rock Garden of Nathupur after its founder Nek Chand Saini, a government official who started building the garden secretly in his spare time in 1957. It has spread over an area of 40 acres (16 ha), and is completely built from industrial, home waste, and discarded items.
+            In his spare time, Nek Chand started collecting materials from demolition sites around the city. He recycled these materials into his own vision of the divine kingdom of Sukrani, choosing a gorge in a forest near Sukhna Lake for his work. The gorge had been designated as a land conservancy, a forest buffer established in 1902 that nothing could be built on. Chand's work was illegal, but he was able to hide it for 18 years before it was discovered by the authorities in 1976. By this time, it had grown into a 12-acre (4.9 ha) complex of interlinked courtyards, each filled with hundreds of pottery-covered concrete sculptures of dancers, musicians, and animals.
+            </p>
+        <div class="spot-features">
+            <div class="main-div"></div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-item">
+                        <img src="image59.jpg" alt="Image 59">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="image60.jpeg" alt="Image 60">
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="scrollCarousel(-1)">&#10094;</button>
+                <button class="carousel-btn next" onclick="scrollCarousel(1)">&#10095;</button>
+            </div>
+            <div class="card">
+                <div class="weather">
+                    <h1 class="temp">32°C</h1> 
+                    <h2 class="city">Delhi</h2>
+                    <div class="details">
+                        <p class="humidity">50%<br>Humidity</p>
+                        <p class="wind">15 Km/hr<br>Wind Speed</p>
+                    </div>  
+                </div>
+            </div>
+            <section class="live-traffic card">
+                <div class="container">
+                    <h2>Live Location</h2>
+                    <div id="map" class="card-content" style="height: 400px;"></div>
+                </div>
+            </section>
+            
+            <section class="live-news card">
+                <div class="news-feed-card">
+                    <h2>Live News Feed</h2>
+                    <ul id="news-feed" class="card-content"></ul>
+                </div>
+            </section>
+        </div>
+        
+    </div>
+
+    <div class="footer">
+        <a href="tourist_spots.html"><p class="back">Back to Tourist Spots</p></a>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const city = 'Visakhapatnam'; 
+
+            fetchCoordinates(city)
+                .then(coordinates => {
+                    const map = L.map('map').setView([coordinates.lat, coordinates.lon], 12);
+
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© OpenStreetMap contributors'
+                    }).addTo(map);
+
+                    //const apiKey = '15WgHzGAcTC6gq9dAgzMbexMNAZBpAtJ'; 
+                    const trafficLayer = L.tileLayer(`https://api.tomtom.com/traffic/4/tile/flow/{z}/{x}/{y}.png?key=${apiKey}`, {
+                        attribution: '© TomTom Traffic'
+                    });
+                    trafficLayer.addTo(map);
+                })
+                .catch(error => console.error(error));
+
+            function fetchCoordinates(city) {
+                //const apiKey = 'c0622660cf904fd3b9be07f9faf2af61'; 
+                const geocodingApiUrl = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(city)}&key=${apiKey}`;
+
+                return fetch(geocodingApiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.results.length > 0) {
+                            const location = data.results[0].geometry;
+                            return { lat: location.lat, lon: location.lng };
+                        } else {
+                            throw new Error('City not found');
+                        }
+                    });
+            }
+
+            //const apiKey = "225575b735fc3995f7da7d2c63307ec3";
+            const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=Visakhapatnam";
+
+            async function checkWeather() {
+                const response = await fetch(`${apiUrl}&appid=${apiKey}`);
+                const data = await response.json();
+
+                console.log(data);
+
+                document.querySelector(".city").innerHTML = data.name;
+                document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+                document.querySelector(".humidity").innerHTML = data.main.humidity + "%"; 
+                document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+            }
+
+            checkWeather();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const city = 'Visakhapatnam'; 
+            const newsApiKey = 'bf7a26af561c49a5b198a2bba870b34d'; 
+            const newsApiUrl = `https://newsapi.org/v2/top-headlines?q=India&apiKey=bf7a26af561c49a5b198a2bba870b34d`;
+
+            function loadNewsFeed() {
+                fetch(newsApiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        const newsFeedElement = document.getElementById('news-feed');
+                        newsFeedElement.innerHTML = ''; // Clear existing content
+
+                        data.articles.forEach(article => {
+                            const listItem = document.createElement('li');
+                            listItem.innerHTML = `<p><strong>${article.title}</strong><br>${article.description}</p>`;
+                            newsFeedElement.appendChild(listItem);
+                        });
+
+                        autoscroll();
+                    })
+                    .catch(error => console.error('Error fetching news:', error));
+            }
+
+            loadNewsFeed();
+
+            
+        });
+    </script>
+</body>
+</html>
