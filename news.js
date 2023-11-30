@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const newsApiUrl = `https://newsapi.org/v2/top-headlines?q=India&apiKey=1ebee1c87d714b11b0e107ae0b84d91a`;
+  const newsApiUrl = `https://newsapi.org/v2/top-headlines?q=India&apiKey=bf7a26af561c49a5b198a2bba870b34d`;
   function loadNewsFeed() {
     fetch(newsApiUrl)
       .then(response => response.json())
